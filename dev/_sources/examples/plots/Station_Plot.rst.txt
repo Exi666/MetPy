@@ -37,6 +37,7 @@ existing point data in a format you can work with trivially, the station plot wi
 
 
 
+
 The setup
 ---------
 
@@ -61,6 +62,7 @@ with strings
 
 
 
+
 This sample data has *way* too many stations to plot all of them. The number
 of stations plotted will be reduced using `reduce_point_density`.
 
@@ -76,6 +78,7 @@ of stations plotted will be reduced using `reduce_point_density`.
     # then refine the number of stations plotted by setting a 300km radius
     point_locs = proj.transform_points(ccrs.PlateCarree(), data['lon'].values, data['lat'].values)
     data = data[reduce_point_density(point_locs, 300000.)]
+
 
 
 
@@ -107,6 +110,7 @@ Now that we have the data we want, we need to perform some conversions:
     # Map weather strings to WMO codes, which we can use to convert to symbols
     # Only use the first symbol if there are multiple
     wx = [wx_code_map[s.split()[0] if ' ' in s else s] for s in data['weather'].fillna('')]
+
 
 
 
@@ -189,9 +193,10 @@ The payoff
 
 
 
+
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.767 seconds)
+   **Total running time of the script:** ( 0 minutes  5.355 seconds)
 
 
 .. _sphx_glr_download_examples_plots_Station_Plot.py:
